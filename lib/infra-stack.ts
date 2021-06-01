@@ -74,7 +74,7 @@ export class InfraStack extends cdk.Stack {
   private createApi() {
     this.httpApi = new api.HttpApi(this, 'HttpApi', {
       corsPreflight: {
-        allowHeaders: ['Authorization'],
+        allowHeaders: ['authorization'],
         allowMethods: [CorsHttpMethod.ANY],
         allowOrigins: ['*'],
       },

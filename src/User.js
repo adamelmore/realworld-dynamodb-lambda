@@ -284,7 +284,7 @@ function getUserByUsername(aUsername) {
 }
 
 function getTokenFromEvent(event) {
-  return event.headers.Authorization.replace('Token ', '')
+  return event.headers.authorization.replace('Token ', '')
 }
 
 async function getProfileByUsername(aUsername, aAuthenticatedUser) {
