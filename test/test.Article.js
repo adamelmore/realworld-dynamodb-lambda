@@ -445,11 +445,12 @@ describe('Article', async () => {
     })
 
     it('should disallow multiple of author/tag/favorited', async () => {
-      ;[
+      const keys = [
         ['tag', 'author'],
         ['author', 'favorited'],
         ['favorited', 'tag'],
-      ].forEach(async (params) => {
+      ]
+      keys.forEach(async (params) => {
         await axios
           .get(`/articles?${params[0]}=foo&${params[1]}=bar`)
           .catch((res) => TestUtil.assertError(res, /Only one of these can be specified/))
