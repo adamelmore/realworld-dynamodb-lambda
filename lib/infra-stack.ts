@@ -2,6 +2,7 @@ import * as cdk from '@aws-cdk/core'
 import * as dynamodb from '@aws-cdk/aws-dynamodb'
 import * as nodelambda from '@aws-cdk/aws-lambda-nodejs'
 import * as api from '@aws-cdk/aws-apigatewayv2'
+import * as backup from '@aws-cdk/aws-backup'
 import {CorsHttpMethod, HttpMethod} from '@aws-cdk/aws-apigatewayv2'
 import {LambdaProxyIntegration} from '@aws-cdk/aws-apigatewayv2-integrations'
 
@@ -57,6 +58,16 @@ export class InfraStack extends cdk.Stack {
     this.commentsTable.addGlobalSecondaryIndex({
       indexName: 'article',
       partitionKey: {name: 'slug', type: dynamodb.AttributeType.STRING},
+    })
+
+    const backupPlan = backup.BackupPlan.dailyWeeklyMonthly5YearRetention(this, 'BackupPlan')
+
+    backupPlan.addSelection('Selection', {
+      resources: [
+        backup.BackupResource.fromDynamoDbTable(this.usersTable),
+        backup.BackupResource.fromDynamoDbTable(this.articlesTable),
+        backup.BackupResource.fromDynamoDbTable(this.commentsTable),
+      ],
     })
   }
 

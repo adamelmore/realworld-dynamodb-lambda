@@ -45,6 +45,7 @@
   "dependencies": {
     "@aws-cdk/aws-apigatewayv2": "^1.106.1",
     "@aws-cdk/aws-apigatewayv2-integrations": "^1.106.1",
+    "@aws-cdk/aws-backup": "^1.106.1",
     "@aws-cdk/aws-codepipeline-actions": "^1.106.1",
     "@aws-cdk/aws-dynamodb": "^1.106.1",
     "@aws-cdk/aws-lambda": "^1.106.1",
