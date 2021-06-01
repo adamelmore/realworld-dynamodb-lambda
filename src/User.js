@@ -315,6 +315,7 @@ async function authenticateAndGetUser(event) {
     const authenticatedUser = await getUserByUsername(username)
     return authenticatedUser.Item
   } catch (err) {
+    console.error(err)
     return null
   }
 }

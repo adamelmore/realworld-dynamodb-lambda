@@ -126,6 +126,7 @@ export class InfraStack extends cdk.Stack {
       entry: './src/Article.js',
       environment: {
         ARTICLES_TABLE_NAME: this.articlesTable.tableName,
+        USERS_TABLE_NAME: this.usersTable.tableName,
       },
     }
 
@@ -143,6 +144,7 @@ export class InfraStack extends cdk.Stack {
         handler: key,
       })
       this.articlesTable.grantReadWriteData(handler)
+      this.usersTable.grantReadData(handler)
 
       this.httpApi.addRoutes({
         path,
@@ -206,6 +208,7 @@ export class InfraStack extends cdk.Stack {
       environment: {
         ARTICLES_TABLE_NAME: this.articlesTable.tableName,
         COMMENTS_TABLE_NAME: this.commentsTable.tableName,
+        USERS_TABLE_NAME: this.usersTable.tableName,
       },
     }
 
@@ -224,6 +227,7 @@ export class InfraStack extends cdk.Stack {
       })
       this.articlesTable.grantReadWriteData(handler)
       this.commentsTable.grantReadWriteData(handler)
+      this.usersTable.grantReadWriteData(handler)
 
       this.httpApi.addRoutes({
         path,
