@@ -1,5 +1,4 @@
 module.exports = {
-
   env: {
     node: true,
     mocha: true,
@@ -16,19 +15,20 @@ module.exports = {
   rules: {
     'comma-spacing': 'error',
     'eol-last': 'error',
-    'max-len': ['error', 80],
+    'max-len': ['error', 100],
     'no-console': 'off',
     'no-multi-spaces': 'error',
     'no-trailing-spaces': 'error',
     'no-var': 'error',
     'prefer-const': 'error',
     'require-atomic-updates': 'off',
-    'semi': 'error',
-    'space-before-function-paren': ['error', {
-      'anonymous': 'always',
-      'asyncArrow': 'always',
-      'named': 'never',
-    }],
+    'space-before-function-paren': [
+      'error',
+      {
+        anonymous: 'always',
+        asyncArrow: 'always',
+        named: 'never',
+      },
+    ],
   },
-
-};
+}

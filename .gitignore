@@ -9,3 +9,7 @@ dist
 coverage
 gh-pages
 .dynamodb
+
+# CDK asset staging directory
+.cdk.staging
+cdk.out
