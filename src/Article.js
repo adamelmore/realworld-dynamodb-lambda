@@ -278,6 +278,7 @@ module.exports = {
     }
     return Util.envelop({
       articles: await queryEnoughArticles(queryParams, authenticatedUser, limit, offset),
+      foo: 'bar',
     })
   },
 
